@@ -66,6 +66,20 @@ export class AddressesService {
     });
   }
 
-  async update(data: UpdateAddressesDTO) {}
+  async update(id: number, data: UpdateAddressesDTO) {
+    if (data.zipCode) {
+      data.zipCode = data.zipCode.replace('-', '');
+    }
+    // if (data.personId) {
+    //   data.personId = Number(data.personId);
+    // }
+
+    await this.get(+id);
+
+    return this.prisma.addresses.update({
+      data,
+      where: { id: +id },
+    });
+  }
   async delete(id: number) {}
 }

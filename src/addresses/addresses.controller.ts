@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { AddressesService } from './addresses.service';
 import { CreateAddressesDTO } from './dto/createAddresses.dto';
-
+import { UpdateAddressesDTO } from './dto/updateAddresses.dto';
 @Controller('addresses')
 export class AddressesController {
   constructor(private addressesService: AddressesService) {}
@@ -40,9 +40,11 @@ export class AddressesController {
 
   // @UseGuards(AuthGuard)
   @Put(':id')
-  async update(@Param('id') id: number, @Body() data) {
-    const { street } = data;
-    return this.addressesService.update(street);
+  async update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() data: UpdateAddressesDTO,
+  ) {
+    return this.addressesService.update(id, data);
   }
 
   // @UseGuards(AuthGuard)
