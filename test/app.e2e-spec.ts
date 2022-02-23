@@ -15,10 +15,14 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/auth (POST)', () => {
+    const body = {
+      email: 'joao@hcode.com.br',
+      password: '123456',
+    };
     return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+      .post('/auth/login')
+      .send(body)
+      .expect(201);
   });
 });

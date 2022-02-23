@@ -13,13 +13,13 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { UserService } from 'src/user/user.service';
+import { UserService } from '../user/user.service';
 import { parse } from 'date-fns';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { JwtService } from '@nestjs/jwt';
 import { Auth } from './auth.decorator';
-import { User } from 'src/user/user.decorator';
+import { User } from '../user/user.decorator';
 import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('auth')

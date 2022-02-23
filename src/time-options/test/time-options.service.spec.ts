@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TimeOptionsService } from './time-options.service';
+import { TimeOptionsService } from '../time-options.service';
 
 describe('TimeOptionsService', () => {
   let service: TimeOptionsService;
