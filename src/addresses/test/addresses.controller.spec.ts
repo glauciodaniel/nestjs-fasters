@@ -14,6 +14,12 @@ describe('AddressesController', () => {
         ...dto,
       };
     }),
+    update: jest.fn((id, dto) => {
+      return {
+        id: Date.now(),
+        ...dto,
+      };
+    }),
   };
 
   beforeEach(async () => {

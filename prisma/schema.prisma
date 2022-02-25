@@ -83,3 +83,4 @@ model Addresses {
   @@index([personId], map: "FK_addresses_persons")
   @@map("addresses")
 }
+
